@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DogeInfo</title>
+    <li id="price"></li>
+    <li id="high"></li>
+    <li id="low"></li>
+    <link rel="stylesheet" type="text/css" href="dogeStyling.css">
+</head>
+
+<body>
+    <h2>AJAX Example, JSON Object</h2>
+    <br>
+    <div id="dogeResults" class="infoData">
+        <br>
+        <button id="dogeBTN" type="button" onclick="getDogeInfo()"> Get DogeInfo Info</button>
+    </div>
+    <script type="module" src="../js/scrape.js"></script>
+    <script>
+        function getDogeInfo() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.timeout = 3000;
+            xhttp.responseType = "json";
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    ProcessJSON(this.response);
+                }
+            };
+            xhttp.open("GET", "dogeJSON.json", true);
+            xhttp.send();
+        }
+
+        function ProcessJSON(json) {
+            document.getElementById("price").innerHTML = json.price;
+            document.getElementById("high").innerHTML = json.high;
+            document.getElementById("low").innerHTML = json.low;
+        }
+    </script>
+</body>
+
+</html>
