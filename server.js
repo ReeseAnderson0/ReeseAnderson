@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/'));
 app.use(bodyParser.json());
 
 // routes
-app.post("/Doge", (dogeReq, response) => {
+app.post("", (dogeReq, response) => {
     console.log('you posted: \n');
     console.log(dogeReq.body);
     const fs = require('fs');
