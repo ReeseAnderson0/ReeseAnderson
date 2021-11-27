@@ -3,14 +3,14 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var port = process.env.Port
+var port = process.env.Port || 8080
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/'));
 
 app.use(bodyParser.json());
 
 // routes
-app.post("https://reeseanderson.ca/Doge", (dogeReq, response) => {
+app.post("/Doge", (dogeReq, response) => {
     console.log('you posted: \n');
     console.log(dogeReq.body);
     const fs = require('fs');
