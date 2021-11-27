@@ -1,9 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-
 var app = express();
 
-var port = process.env.Port || 8080
+const server = app.listen(process.env.PORT || 5000, () => {
+    const port = server.address().port;
+    console.log(`Online listening at port: ${port}`);
+});
+
 
 app.use(express.static(__dirname + '/'));
 
@@ -22,6 +25,3 @@ app.get("/", function(req, res) {
     res.render("index")
 })
 
-app.listen(port, function() {
-    console.log("Online");
-})
