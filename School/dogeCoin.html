@@ -7,9 +7,7 @@
 </head>
 
 <body>
-    <div class="rocketContainer">
-        <img src="/img/rocket.png" alt="rocket" width="100" height="100" class="rocket" id="rocket">
-    </div>
+    <img src="/img/rocket.png" alt="rocket" width="100" height="100" class="rocket" id="rocket">
     <img src="/img/moon.png" alt="DogeCoin" width="300" height="300" class="moon">
     <h1>DOGECOIN AJAX</h1>
     <ul class="DogeTable">
@@ -20,6 +18,8 @@
         <li id="change">CHANGE</li>
         <br>
         <button id="dogeBTN" type="button" class="btn" onclick="getDogeInfo()">Get DogeInfo Info</button>
+        <br><br>
+        <li style="font-weight: bolder;" id="dateUpdate">Not Updated</li>
     </ul>
     <script type="text/javascript">
         function getDogeInfo() {
@@ -78,6 +78,11 @@
             } else {
                 document.getElementById("change").style.color = "red";
             }
+            var date = new Date();
+            var options = {
+                hour12: false
+            };
+            document.getElementById("dateUpdate").textContent = "Last Updated: " + date.toLocaleString('en-ca', options);
         }
     </script>
 </body>
