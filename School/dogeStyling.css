@@ -11,16 +11,10 @@
     transform: translateY(-50%);
 }
 
-.rocketContainer {
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
 .rocket {
     position: absolute;
-    bottom: 0%;
-    right: 0%;
+    top: 30%;
+    right: 10%;
 }
 
 .moon {
